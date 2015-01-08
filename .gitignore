@@ -12,3 +12,7 @@
 npm-debug.log
 testem.log
 .agignore
+node_modules/
+*/.DS_Store
+.DS_Store
+.idea/
