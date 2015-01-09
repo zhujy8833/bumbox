@@ -3,6 +3,6 @@ import albums from 'bumbox/models/album-fixtures';
 
 export default Ember.Route.extend({
     model : function(params) {
-        return albums.findBy(params.album_id);
+        return albums.findBy("id", params.album_id);
     }
 });
