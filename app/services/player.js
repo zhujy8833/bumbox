@@ -4,11 +4,13 @@ var run = Ember.run;
 
 export default Ember.Service.extend({
     isPlaying : false,
+    audioElement : null,
+    song : null,
 
     setUpAudioElement : function(){
         var ele = document.createElement('audio');
         ele.addEventListener('play', run.bind(this, 'didStartPlaying'));
-        ele.addEventListener('pause', run.bind(this, 'didStopPlaying'));
+        ele.addEventListener('pause', run.bind(this, 'didPause'));
         this.set('audioElement', ele);
     }.on('init'),
 
@@ -16,17 +18,17 @@ export default Ember.Service.extend({
         this.set('isPlaying', true);
     },
 
-    didStopPlaying : function() {
+    didPause : function() {
         this.set('isPlaying', false);
     },
 
     play : function(song) {
+        this.set('song', song);
         this.set('audioElement.src', song.get('url'));
         this.get('audioElement').play();
     },
 
     pause : function() {
-        console.log(this.get('audioElement'))
         this.get('audioElement').pause();
     },
 
