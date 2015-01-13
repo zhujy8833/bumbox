@@ -39,7 +39,6 @@ test("The song stops playing when the service is destroyed", function() {
 
   player.play(song);
   Ember.run(player, player.destroy);
-
   ok(player.get('audioElement').paused, 'The audio element is paused');
   equal(player.get('audioElement').src, document.baseURI, 'The audio element src has been wiped');
 });
