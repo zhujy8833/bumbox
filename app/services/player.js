@@ -34,6 +34,6 @@ export default Ember.Service.extend({
 
     willDestroy : function() {
         this.get('audioElement').pause();
-        this.get('audioElement.src', '');
+        this.set('audioElement.src', '');
     }
 });
