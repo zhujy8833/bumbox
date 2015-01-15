@@ -10,6 +10,7 @@
                     {{format-duration player.currentTime}}
                 </p>
             </div>
+            {{audio-control isPlaying=player.isPlaying pause='pause' play='resume'}}
         </div>
 {{else}}
         <span class="now-playing-empty">Select a song to start playing.</span>
